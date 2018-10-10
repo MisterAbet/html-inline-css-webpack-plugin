@@ -20,7 +20,7 @@ interface Config {
 export default class Plugin
 {
   static addStyle(html: string, style: string) {
-    return html.replace('</head>', `<style>${style}</style></head>`);
+    return html.replace('<!-- inline_css_plugin -->', `<style>${style}</style>`);
   }
 
   static removeLinkTag(html: string, cssFileName: string) {
