@@ -23,13 +23,6 @@ export default class Plugin
     return html.replace('<!-- inline_css_outlet -->', `<style>${style}</style>`);
   }
 
-  static removeLinkTag(html: string, cssFileName: string) {
-    return html.replace(
-      new RegExp(`<link[^>]+href=['"]${cssFileName}['"][^>]+(>|\/>|><\/link>)`),
-      '',
-    );
-  }
-
   private config: Config;
 
   private css: File = {};
@@ -57,7 +50,6 @@ export default class Plugin
         const isCurrentFileNeedsToBeInlined = this.filter(fileName);
         if (isCurrentFileNeedsToBeInlined) {
           this.css[fileName] = assets[fileName].source();
-          delete assets[fileName];
         }
       } else if (isHTML(fileName)) {
         this.html[fileName] = assets[fileName].source();
@@ -72,7 +64,6 @@ export default class Plugin
 
       Object.keys(this.css).forEach((key) => {
         html = Plugin.addStyle(html, this.css[key]);
-        html = Plugin.removeLinkTag(html, publicPath + key);
       });
 
       assets[htmlFileName] = {
