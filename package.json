@@ -6,7 +6,7 @@
   "types": "./build/index.d.ts",
   "scripts": {
     "build": "rm -rf ./build && tsc",
-    "postinstall": "npm run build && rm -rf ./src && rm ./tsconfig.json"
+    "postinstall": "npm install && npm run build && rm -rf ./src && rm ./tsconfig.json"
   },
   "repository": {
     "type": "git",
