@@ -1,11 +1,12 @@
 {
-  "name": "@trainiac/html-inline-css-webpack-plugin",
+  "name": "@elfster/html-inline-css-webpack-plugin",
   "version": "1.2.3",
   "description": "A webpack plugin for convert external style sheet to internal style sheet",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./build && tsc"
+    "build": "rm -rf ./build && tsc",
+    "postinstall": "npm run build && rm -rf ./src && rm ./tsconfig.json"
   },
   "repository": {
     "type": "git",
