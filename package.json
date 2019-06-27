@@ -5,8 +5,7 @@
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./build && tsc",
-    "postinstall": "npm install && npm run build && rm -rf ./src && rm ./tsconfig.json"
+    "build": "rm -rf ./build && tsc"
   },
   "repository": {
     "type": "git",
